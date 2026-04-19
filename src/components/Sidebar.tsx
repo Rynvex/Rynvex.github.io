@@ -93,7 +93,7 @@ export default function Sidebar() {
             <Mail size={20} />
           </a>
           <a
-            href="https://github.com/HEroKuma"
+            href="https://github.com/Rynvex"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

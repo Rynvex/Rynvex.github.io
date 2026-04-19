@@ -2,7 +2,7 @@
  * Static export for GitHub Pages.
  *
  * Switching between user-site / project-site:
- *   - User site (HEroKuma.github.io):    leave NEXT_PUBLIC_BASE_PATH unset
+ *   - User site (Rynvex.github.io):      leave NEXT_PUBLIC_BASE_PATH unset
  *   - Project site (/<repo>):            set NEXT_PUBLIC_BASE_PATH=/<repo> in CI
  *
  * @type {import('next').NextConfig}

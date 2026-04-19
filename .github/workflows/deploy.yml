@@ -31,7 +31,7 @@ jobs:
       - name: Build (static export)
         run: npm run build
         env:
-          # Leave empty for user site (HEroKuma.github.io).
+          # Leave empty for user site (Rynvex.github.io).
           # For project site, set to /<repo-name> in the repo's Actions variables.
           NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
 

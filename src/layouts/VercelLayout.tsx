@@ -77,7 +77,7 @@ export default function VercelLayout() {
           </div>
           <div className="mt-10 flex items-center gap-5 text-[var(--text-muted)]">
             <a href={`mailto:${t.contact.email}`} aria-label="Email" className="hover:text-[var(--text)]"><Mail size={18} /></a>
-            <a href="https://github.com/HEroKuma" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-[var(--text)]"><Github size={18} /></a>
+            <a href="https://github.com/Rynvex" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-[var(--text)]"><Github size={18} /></a>
             <a href="https://www.linkedin.com/in/changliwei" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[var(--text)]"><Linkedin size={18} /></a>
             <div className="ml-auto flex items-center rounded-md border border-[var(--border)] p-0.5 bg-[var(--card-bg)]">
               {LOCALES.map((l) => (
