@@ -106,7 +106,7 @@ export const messages: Record<Locale, Msg> = {
       items: [
         {
           role: "DevPM",
-          period: "Jul 2026 — Present",
+          period: "Jul 2025 — Present",
           company: "Asilla, Inc. · Remote",
           bullets: [
             "Lead multiple AI projects end-to-end: requirements, scope, cross-functional delivery, JP/EN client communication.",
@@ -126,7 +126,7 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           role: "R&D Engineer",
-          period: "Dec 2022 — Jun 2026",
+          period: "Dec 2022 — Jun 2025",
           company: "Asilla, Inc. · Remote",
           bullets: [
             "Designed and trained CV models for anomaly, action, and emotion recognition.",
@@ -314,7 +314,7 @@ export const messages: Record<Locale, Msg> = {
       items: [
         {
           role: "DevPM",
-          period: "2026.7 — 至今",
+          period: "2025.7 — 至今",
           company: "Asilla, Inc. · 遠端",
           bullets: [
             "同時領導多個 AI 專案的全生命週期：需求、範圍、跨職能交付、日英雙語客戶溝通。",
@@ -334,7 +334,7 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           role: "R&D Engineer",
-          period: "2022.12 — 2026.6",
+          period: "2022.12 — 2025.6",
           company: "Asilla, Inc. · 遠端",
           bullets: [
             "設計並訓練異常、行為、情緒辨識的電腦視覺模型。",
@@ -515,7 +515,7 @@ export const messages: Record<Locale, Msg> = {
       items: [
         {
           role: "DevPM",
-          period: "2026.7 — 現在",
+          period: "2025.7 — 現在",
           company: "株式会社アジラ · リモート",
           bullets: [
             "複数のAIプロジェクトを並行してリード：要件定義、スコープ、クロスファンクショナル納品、日英クライアント対応。",
@@ -535,7 +535,7 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           role: "R&Dエンジニア",
-          period: "2022.12 — 2026.6",
+          period: "2022.12 — 2025.6",
           company: "株式会社アジラ · リモート",
           bullets: [
             "異常・行動・感情認識のCVモデルを設計・学習。",
