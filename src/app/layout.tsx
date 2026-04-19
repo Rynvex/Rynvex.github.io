@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "Chang Li-Wei — DevPM · AI / Computer Vision",
   description:
     "DevPM at Asilla Inc. (Tokyo). Bridging AI research and real-world deployment. Computer vision, LLM, RAG.",
-  metadataBase: new URL("https://changliwei.dev"),
+  metadataBase: new URL("https://rynvex.github.io"),
   openGraph: {
     title: "Chang Li-Wei — DevPM · AI / Computer Vision",
     description:
