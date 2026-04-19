@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Linear — dark-native ===== */
+:root,
+[data-design="linear"] {
+  --bg: #08090a;
+  --surface: #0f1011;
+  --elevated: #191a1b;
+  --text: #f7f8f8;
+  --text-muted: #8a8f98;
+  --text-subtle: #62666d;
+  --accent: #7170ff;
+  --accent-hover: #828fff;
+  --accent-bg: #5e6ad2;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-hover: rgba(255, 255, 255, 0.04);
+  --font-sans: var(--font-inter), "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-feature: "cv01", "ss03";
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-card: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px, rgba(0, 0, 0, 0.4) 0px 2px 4px;
+  --display-tracking: -1.056px;
+  --h1-tracking: -0.704px;
+  --weight-normal: 400;
+  --weight-emphasis: 510;
+  --weight-strong: 590;
+}
+
+/* ===== Apple — pure black, cinematic ===== */
+[data-design="apple"] {
+  --bg: #000000;
+  --surface: #272729;
+  --elevated: #2a2a2d;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.72);
+  --text-subtle: rgba(255, 255, 255, 0.48);
+  --accent: #2997ff;
+  --accent-hover: #5aaeff;
+  --accent-bg: #0071e3;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --card-bg: #272729;
+  --card-hover: #2a2a2d;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", ui-monospace, monospace;
+  --font-feature: normal;
+  --radius-sm: 5px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-card: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+  --display-tracking: -0.28px;
+  --h1-tracking: -0.2px;
+  --weight-normal: 400;
+  --weight-emphasis: 600;
+  --weight-strong: 700;
+}
+/* Apple's signature 980px pill CTA */
+[data-design="apple"] .btn {
+  border-radius: 980px;
+  padding: 0 1.25rem;
+  height: 42px;
+}
+
+/* ===== Airbnb — warm, photography-forward ===== */
+[data-design="airbnb"] {
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --elevated: #ffffff;
+  --text: #222222;
+  --text-muted: #6a6a6a;
+  --text-subtle: #929292;
+  --accent: #ff385c;
+  --accent-hover: #e00b41;
+  --accent-bg: #222222;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --card-bg: #ffffff;
+  --card-hover: #fafafa;
+  --font-sans: var(--font-inter), "Airbnb Cereal", Circular, -apple-system, system-ui,
+    sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: "salt";
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-card: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.04) 0px 2px 6px, rgba(0, 0, 0, 0.1) 0px 4px 8px;
+  --display-tracking: -0.44px;
+  --h1-tracking: -0.18px;
+  --weight-normal: 400;
+  --weight-emphasis: 600;
+  --weight-strong: 700;
+}
+[data-design="airbnb"] .display {
+  font-weight: 700;
+}
+[data-design="airbnb"] .card {
+  border-radius: 20px;
+}
+
+/* ===== Vercel — light-native ===== */
+[data-design="vercel"] {
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --elevated: #ffffff;
+  --text: #171717;
+  --text-muted: #4d4d4d;
+  --text-subtle: #808080;
+  --accent: #0072f5;
+  --accent-hover: #0068d6;
+  --accent-bg: #171717;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --card-bg: #ffffff;
+  --card-hover: #fafafa;
+  --font-sans: var(--font-geist), "Geist", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, "SF Mono", monospace;
+  --font-feature: "liga";
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-card: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px,
+    rgba(0, 0, 0, 0.04) 0px 8px 8px -8px, #fafafa 0px 0px 0px 1px inset;
+  --display-tracking: -2.4px;
+  --h1-tracking: -1.28px;
+  --weight-normal: 400;
+  --weight-emphasis: 500;
+  --weight-strong: 600;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-feature-settings: var(--font-feature);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Section base */
+.section {
+  @apply max-w-6xl mx-auto px-6 md:px-8;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: var(--weight-emphasis);
+  color: var(--text-subtle);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-weight: var(--weight-emphasis);
+  letter-spacing: var(--display-tracking);
+  line-height: 1.02;
+}
+
+.h1 {
+  font-weight: var(--weight-emphasis);
+  letter-spacing: var(--h1-tracking);
+  line-height: 1.1;
+}
+
+.h2 {
+  font-weight: var(--weight-strong);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-strong);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 40px;
+  padding: 0 1rem;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: var(--weight-emphasis);
+  letter-spacing: -0.01em;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent-bg);
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  background: var(--card-hover);
+  border-color: var(--border-strong);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-emphasis);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  letter-spacing: 0.02em;
+}
+
+.link {
+  color: var(--accent);
+  transition: color 0.15s ease;
+}
+.link:hover {
+  color: var(--accent-hover);
+}
+
+/* Cursor spotlight (Linear mode only — doesn't suit Vercel's clean white) */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.2s ease;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--accent) 10%, transparent),
+    transparent 50%
+  );
+}
+[data-design="vercel"] .spotlight,
+[data-design="airbnb"] .spotlight {
+  display: none;
+}
+
+/* Nav link with growing underline */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-strong);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  transition: color 0.2s ease;
+  padding: 4px 0;
+}
+.nav-link::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--text-subtle);
+  transition: all 0.2s ease;
+}
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--text);
+}
+.nav-link:hover::before,
+.nav-link.is-active::before {
+  width: 64px;
+  background: var(--text);
+}
+
+/* Hoverable row (experience / projects) */
+.row {
+  position: relative;
+  padding: 20px;
+  margin: 0 -20px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+.row:hover {
+  background: var(--card-hover);
+  border-color: var(--border);
+}
+
+/* Section header sticky label */
+.section-sticky-label {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 0 -20px 20px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-strong);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+@media (min-width: 768px) {
+  .section-sticky-label {
+    display: none;
+  }
+  /* Non-Linear layouts don't have a sticky sidebar — keep section labels visible */
+  [data-design="vercel"] .section-sticky-label,
+  [data-design="apple"] .section-sticky-label,
+  [data-design="airbnb"] .section-sticky-label {
+    display: block;
+  }
+}
+
+/* Arrow link */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text);
+  font-weight: var(--weight-emphasis);
+  transition: color 0.2s ease;
+}
+.arrow-link svg {
+  transition: transform 0.2s ease;
+}
+.arrow-link:hover {
+  color: var(--accent);
+}
+.arrow-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Status dot */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.25); }
+}
