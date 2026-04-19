@@ -7,3 +7,7 @@ out/
 next-env.d.ts
 .claude/
 /tmp/
+
+# root-level resume source files (public/ copies are what the site serves)
+/Chang Li-Wei.pdf
+/履歴書.pdf
