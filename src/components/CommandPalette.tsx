@@ -77,9 +77,6 @@ export default function CommandPalette() {
                   <div className="flex-1 min-w-0">
                     <div className="text-[14px] font-semibold text-[var(--text)]">
                       {meta.name}
-                      <span className="ml-2 text-[11px] font-mono font-normal text-[var(--text-subtle)]">
-                        {meta.source}
-                      </span>
                     </div>
                     <div className="text-[12px] text-[var(--text-muted)] mt-0.5 truncate">
                       {meta.tagline[locale]}

@@ -41,13 +41,10 @@ export default function DesignLab() {
                   </span>
                 )}
               </div>
-              <div className="mt-4 flex items-baseline gap-2 flex-wrap">
+              <div className="mt-4">
                 <h3 className="text-[17px] font-semibold text-[var(--text)]">
                   {meta.name}
                 </h3>
-                <span className="text-[11px] font-mono text-[var(--text-subtle)]">
-                  {meta.source}
-                </span>
               </div>
               <p className="mt-1 text-[13px] text-[var(--text-muted)]">
                 {meta.tagline[locale]}
