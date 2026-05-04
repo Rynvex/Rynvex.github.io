@@ -1,12 +1,14 @@
 import type { Locale } from "@/i18n/messages";
 
-export type Design = "linear" | "vercel" | "apple" | "airbnb";
+export type Design = "linear" | "vercel" | "apple" | "airbnb" | "miro" | "pinterest";
 
 export const DESIGNS: readonly Design[] = [
   "linear",
   "vercel",
   "apple",
   "airbnb",
+  "miro",
+  "pinterest",
 ] as const;
 
 export type DesignMeta = {
@@ -100,6 +102,46 @@ export const designMeta: Record<Design, DesignMeta> = {
     },
     swatch: ["#ffffff", "#ff385c", "#222222", "#f2f2f2"],
     fontFamily: "Inter",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  miro: {
+    id: "miro",
+    name: "Miro",
+    source: "miro.com",
+    theme: "light",
+    tagline: {
+      en: "Pastel collaborative whiteboard",
+      zh: "粉彩協作白板感",
+      ja: "パステル系のコラボツール",
+    },
+    description: {
+      en: "White canvas with Roobert-style headlines and Blue 450 (#5b76fe) interactive accent. Generous radii and a thin ring-shadow border.",
+      zh: "白色畫布、Roobert 風格大字標題、Blue 450（#5b76fe）互動色。圓角大、邊框用細 ring shadow。",
+      ja: "白キャンバスにRoobertスタイルの見出し、Blue 450（#5b76fe）のインタラクションカラー。角丸大きめ、ボーダーは細いリングシャドウ。",
+    },
+    swatch: ["#ffffff", "#1c1c1e", "#5b76fe", "#ffc6c6"],
+    fontFamily: "Roobert PRO",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  pinterest: {
+    id: "pinterest",
+    name: "Pinterest",
+    source: "pinterest.com",
+    theme: "light",
+    tagline: {
+      en: "Warm, photography-first board",
+      zh: "暖色、照片優先的板",
+      ja: "温かみ、写真重視のボード",
+    },
+    description: {
+      en: "Warm-white canvas with olive/sand neutrals, Pinterest Red (#e60023) as the singular accent, and generously rounded corners (16–40px).",
+      zh: "暖白畫布配橄欖／沙色中性色、Pinterest 紅（#e60023）單一強調色，圓角大方（16–40px）。",
+      ja: "温白キャンバスにオリーブ／サンド系のニュートラル、シングルアクセントの Pinterest Red（#e60023）、大胆な角丸（16〜40px）。",
+    },
+    swatch: ["#ffffff", "#e60023", "#211922", "#e5e5e0"],
+    fontFamily: "Pin Sans",
     fontVar: "var(--font-inter)",
     specimen: "Aa",
   },

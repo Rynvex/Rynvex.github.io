@@ -274,8 +274,68 @@ body {
   );
 }
 [data-design="vercel"] .spotlight,
-[data-design="airbnb"] .spotlight {
+[data-design="airbnb"] .spotlight,
+[data-design="miro"] .spotlight,
+[data-design="pinterest"] .spotlight {
   display: none;
+}
+
+/* ===== Miro — pastel collaborative ===== */
+[data-design="miro"] {
+  --bg: #ffffff;
+  --surface: #f6f7fb;
+  --elevated: #ffffff;
+  --text: #1c1c1e;
+  --text-muted: #555a6a;
+  --text-subtle: #a5a8b5;
+  --accent: #5b76fe;
+  --accent-hover: #2a41b6;
+  --accent-bg: #5b76fe;
+  --border: #e0e2e8;
+  --border-strong: #c7cad5;
+  --card-bg: #ffffff;
+  --card-hover: #fafafa;
+  --font-sans: var(--font-inter), "Roobert PRO", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: "ss01", "cv03";
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 24px;
+  --shadow-card: rgb(224, 226, 232) 0px 0px 0px 1px;
+  --display-tracking: -1.68px;
+  --h1-tracking: -1.44px;
+  --weight-normal: 400;
+  --weight-emphasis: 500;
+  --weight-strong: 700;
+}
+
+/* ===== Pinterest — warm photography-first ===== */
+[data-design="pinterest"] {
+  --bg: #ffffff;
+  --surface: #f6f6f3;
+  --elevated: #ffffff;
+  --text: #211922;
+  --text-muted: #62625b;
+  --text-subtle: #91918c;
+  --accent: #e60023;
+  --accent-hover: #b8001b;
+  --accent-bg: #e60023;
+  --border: #e5e5e0;
+  --border-strong: #c8c8c1;
+  --card-bg: #ffffff;
+  --card-hover: #f6f6f3;
+  --font-sans: var(--font-inter), "Pin Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: normal;
+  --radius-sm: 12px;
+  --radius: 16px;
+  --radius-lg: 32px;
+  --shadow-card: rgba(0, 0, 0, 0.04) 0px 1px 4px;
+  --display-tracking: -1.2px;
+  --h1-tracking: -0.8px;
+  --weight-normal: 400;
+  --weight-emphasis: 600;
+  --weight-strong: 700;
 }
 
 /* Nav link with growing underline */
