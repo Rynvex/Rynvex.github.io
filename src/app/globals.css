@@ -280,28 +280,29 @@ body {
   display: none;
 }
 
-/* ===== Miro — pastel collaborative ===== */
+/* ===== Pastel — cool collaborative ===== */
 [data-design="miro"] {
   --bg: #ffffff;
-  --surface: #f6f7fb;
+  --surface: #eef1fb;
   --elevated: #ffffff;
   --text: #1c1c1e;
   --text-muted: #555a6a;
-  --text-subtle: #a5a8b5;
+  --text-subtle: #8e93a5;
   --accent: #5b76fe;
   --accent-hover: #2a41b6;
   --accent-bg: #5b76fe;
-  --border: #e0e2e8;
-  --border-strong: #c7cad5;
+  --border: #d6dbe8;
+  --border-strong: #b8c0d2;
   --card-bg: #ffffff;
-  --card-hover: #fafafa;
-  --font-sans: var(--font-inter), "Roobert PRO", system-ui, -apple-system, sans-serif;
+  --card-hover: #eef1fb;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-feature: "ss01", "cv03";
+  --font-feature: "ss01";
   --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 24px;
-  --shadow-card: rgb(224, 226, 232) 0px 0px 0px 1px;
+  --shadow-card: rgba(91, 118, 254, 0.10) 0px 0px 0px 1px,
+    rgba(91, 118, 254, 0.06) 0px 4px 12px;
   --display-tracking: -1.68px;
   --h1-tracking: -1.44px;
   --weight-normal: 400;
@@ -309,33 +310,52 @@ body {
   --weight-strong: 700;
 }
 
-/* ===== Pinterest — warm photography-first ===== */
+[data-design="miro"] .chip {
+  background: color-mix(in srgb, #5b76fe 10%, white);
+  border-color: color-mix(in srgb, #5b76fe 22%, transparent);
+  color: #2a41b6;
+}
+
+/* ===== Bisque — warm photo-rich ===== */
 [data-design="pinterest"] {
-  --bg: #ffffff;
-  --surface: #f6f6f3;
-  --elevated: #ffffff;
+  --bg: #fefcf6;
+  --surface: #f0ebde;
+  --elevated: #fefcf6;
   --text: #211922;
   --text-muted: #62625b;
-  --text-subtle: #91918c;
+  --text-subtle: #8d8b81;
   --accent: #e60023;
   --accent-hover: #b8001b;
   --accent-bg: #e60023;
-  --border: #e5e5e0;
-  --border-strong: #c8c8c1;
-  --card-bg: #ffffff;
-  --card-hover: #f6f6f3;
-  --font-sans: var(--font-inter), "Pin Sans", system-ui, -apple-system, sans-serif;
+  --border: #d8d2c2;
+  --border-strong: #b8b09c;
+  --card-bg: #fefcf6;
+  --card-hover: #f0ebde;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-feature: normal;
-  --radius-sm: 12px;
-  --radius: 16px;
-  --radius-lg: 32px;
-  --shadow-card: rgba(0, 0, 0, 0.04) 0px 1px 4px;
+  --radius-sm: 16px;
+  --radius: 24px;
+  --radius-lg: 40px;
+  --shadow-card: rgba(33, 25, 34, 0.05) 0px 1px 6px;
   --display-tracking: -1.2px;
   --h1-tracking: -0.8px;
   --weight-normal: 400;
   --weight-emphasis: 600;
   --weight-strong: 700;
+}
+
+[data-design="pinterest"] .chip {
+  background: #f0ebde;
+  border: none;
+  color: #211922;
+  font-weight: 600;
+  padding: 3px 12px;
+}
+
+[data-design="pinterest"] .btn {
+  border-radius: 16px;
+  padding: 0 1.25rem;
 }
 
 /* Nav link with growing underline */
