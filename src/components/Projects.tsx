@@ -22,7 +22,6 @@ export default function Projects() {
 function ProjectRow({ p }: { p: Item }) {
   const { openGallery } = useLightbox();
   const hasGallery = !!p.gallery && p.gallery.length > 0;
-  const cover = hasGallery ? p.gallery![0].src : p.image;
 
   const body = (
     <div>
@@ -71,38 +70,15 @@ function ProjectRow({ p }: { p: Item }) {
           ))}
         </div>
       )}
-      {!p.confidential && cover && (
+      {/* Static bottom image only for non-gallery projects (e.g. SVG placeholder) */}
+      {!p.confidential && !hasGallery && p.image && (
         <div className="mt-3 pt-3 border-t border-[var(--border)]">
-          {hasGallery ? (
-            <button
-              type="button"
-              onClick={() => openGallery(p.gallery!)}
-              className="group relative block w-full overflow-hidden rounded-md border border-[var(--border)] hover:border-[var(--border-strong)] transition-colors"
-              aria-label={`Open ${p.title} gallery`}
-            >
-              <img
-                src={cover}
-                alt={p.gallery![0].caption}
-                loading="lazy"
-                className="w-full transition-transform group-hover:scale-[1.02]"
-              />
-              <span className="absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center bg-black/55 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <Maximize2 size={12} />
-              </span>
-              {p.gallery!.length > 1 && (
-                <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-black/60 text-white text-[10px] font-mono">
-                  +{p.gallery!.length - 1} more
-                </span>
-              )}
-            </button>
-          ) : (
-            <img
-              src={cover}
-              alt={p.title}
-              loading="lazy"
-              className="rounded-md border border-[var(--border)] w-full"
-            />
-          )}
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            className="rounded-md border border-[var(--border)] w-full"
+          />
         </div>
       )}
     </div>
@@ -119,15 +95,39 @@ function ProjectRow({ p }: { p: Item }) {
   return (
     <li>
       <div className="row grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] gap-4 md:gap-6">
-        <div
-          className="h-[72px] rounded-[6px] flex items-center justify-center font-mono text-[11px] font-medium text-[var(--text-subtle)] border border-[var(--border)]"
-          style={{
-            background:
-              "linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), color-mix(in srgb, var(--accent) 2%, transparent))",
-          }}
-        >
-          {p.id}
-        </div>
+        {hasGallery ? (
+          <button
+            type="button"
+            onClick={() => openGallery(p.gallery!)}
+            className="group relative h-[72px] rounded-[6px] overflow-hidden border border-[var(--border)] hover:border-[var(--border-strong)] transition-colors cursor-zoom-in"
+            aria-label={`Open ${p.title} gallery`}
+          >
+            <img
+              src={p.gallery![0].src}
+              alt={p.gallery![0].caption}
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+            <span className="absolute inset-0 flex items-center justify-center bg-black/45 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <Maximize2 size={14} />
+            </span>
+            {p.gallery!.length > 1 && (
+              <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-[3px] bg-black/65 text-white text-[9px] font-mono leading-none">
+                +{p.gallery!.length - 1}
+              </span>
+            )}
+          </button>
+        ) : (
+          <div
+            className="h-[72px] rounded-[6px] flex items-center justify-center font-mono text-[11px] font-medium text-[var(--text-subtle)] border border-[var(--border)]"
+            style={{
+              background:
+                "linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), color-mix(in srgb, var(--accent) 2%, transparent))",
+            }}
+          >
+            {p.id}
+          </div>
+        )}
         {body}
       </div>
     </li>
