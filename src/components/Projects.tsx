@@ -1,6 +1,7 @@
 "use client";
-import { ArrowUpRight, Lock } from "lucide-react";
+import { ArrowUpRight, Lock, Maximize2 } from "lucide-react";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { useLightbox } from "@/lib/lightbox";
 
 type Item = ReturnType<typeof useLocale>["t"]["projects"]["items"][number];
 
@@ -19,6 +20,10 @@ export default function Projects() {
 }
 
 function ProjectRow({ p }: { p: Item }) {
+  const { openGallery } = useLightbox();
+  const hasGallery = !!p.gallery && p.gallery.length > 0;
+  const cover = hasGallery ? p.gallery![0].src : p.image;
+
   const body = (
     <div>
       {p.confidential && (
@@ -66,14 +71,38 @@ function ProjectRow({ p }: { p: Item }) {
           ))}
         </div>
       )}
-      {!p.confidential && p.image && (
+      {!p.confidential && cover && (
         <div className="mt-3 pt-3 border-t border-[var(--border)]">
-          <img
-            src={p.image}
-            alt={p.title}
-            loading="lazy"
-            className="rounded-md border border-[var(--border)] w-full"
-          />
+          {hasGallery ? (
+            <button
+              type="button"
+              onClick={() => openGallery(p.gallery!)}
+              className="group relative block w-full overflow-hidden rounded-md border border-[var(--border)] hover:border-[var(--border-strong)] transition-colors"
+              aria-label={`Open ${p.title} gallery`}
+            >
+              <img
+                src={cover}
+                alt={p.gallery![0].caption}
+                loading="lazy"
+                className="w-full transition-transform group-hover:scale-[1.02]"
+              />
+              <span className="absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center bg-black/55 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <Maximize2 size={12} />
+              </span>
+              {p.gallery!.length > 1 && (
+                <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-black/60 text-white text-[10px] font-mono">
+                  +{p.gallery!.length - 1} more
+                </span>
+              )}
+            </button>
+          ) : (
+            <img
+              src={cover}
+              alt={p.title}
+              loading="lazy"
+              className="rounded-md border border-[var(--border)] w-full"
+            />
+          )}
         </div>
       )}
     </div>

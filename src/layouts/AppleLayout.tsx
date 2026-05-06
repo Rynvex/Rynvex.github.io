@@ -1,5 +1,6 @@
 "use client";
-import { Download, Lock, Palette } from "lucide-react";
+import { Download, Lock, Maximize2, Palette } from "lucide-react";
+import { useLightbox } from "@/lib/lightbox";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { LOCALES, type Locale } from "@/i18n/messages";
 import { useDesign } from "@/lib/design";
@@ -17,6 +18,7 @@ export default function AppleLayout() {
   const { t, locale, setLocale } = useLocale();
   const { design } = useDesign();
   const { setOpen } = usePalette();
+  const { openGallery } = useLightbox();
 
   return (
     <>
@@ -162,18 +164,52 @@ export default function AppleLayout() {
               >
                 {p.pitch}
               </p>
-              {!p.confidential && p.image && (
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  className="mt-8 w-full max-w-2xl rounded-xl"
-                  style={{
-                    boxShadow: "rgba(0,0,0,0.22) 3px 5px 30px 0px",
-                    border: `1px solid ${s.subtle}`,
-                  }}
-                />
-              )}
+              {!p.confidential && (() => {
+                const hasGallery = !!p.gallery && p.gallery.length > 0;
+                const cover = hasGallery ? p.gallery![0].src : p.image;
+                if (!cover) return null;
+                if (hasGallery) {
+                  return (
+                    <button
+                      type="button"
+                      onClick={() => openGallery(p.gallery!)}
+                      className="group/cover relative mt-8 w-full max-w-2xl rounded-xl overflow-hidden cursor-zoom-in"
+                      style={{
+                        boxShadow: "rgba(0,0,0,0.22) 3px 5px 30px 0px",
+                        border: `1px solid ${s.subtle}`,
+                      }}
+                      aria-label={`Open ${p.title} gallery`}
+                    >
+                      <img
+                        src={cover}
+                        alt={p.gallery![0].caption}
+                        loading="lazy"
+                        className="w-full transition-transform group-hover/cover:scale-[1.02]"
+                      />
+                      <span className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center bg-black/55 text-white opacity-0 group-hover/cover:opacity-100 transition-opacity">
+                        <Maximize2 size={14} />
+                      </span>
+                      {p.gallery!.length > 1 && (
+                        <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/65 text-white text-[11px] font-mono">
+                          +{p.gallery!.length - 1} more
+                        </span>
+                      )}
+                    </button>
+                  );
+                }
+                return (
+                  <img
+                    src={cover}
+                    alt={p.title}
+                    loading="lazy"
+                    className="mt-8 w-full max-w-2xl rounded-xl"
+                    style={{
+                      boxShadow: "rgba(0,0,0,0.22) 3px 5px 30px 0px",
+                      border: `1px solid ${s.subtle}`,
+                    }}
+                  />
+                );
+              })()}
               <div className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 max-w-lg">
                 {p.stack.map((tech) => (
                   <span key={tech} className="text-[13px] font-mono" style={{ color: s.subtle }}>

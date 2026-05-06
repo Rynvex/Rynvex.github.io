@@ -2,6 +2,7 @@
 import { useDesign } from "@/lib/design";
 import Spotlight from "@/components/Spotlight";
 import CommandPalette from "@/components/CommandPalette";
+import Lightbox from "@/components/Lightbox";
 import LinearLayout from "@/layouts/LinearLayout";
 import VercelLayout from "@/layouts/VercelLayout";
 import AppleLayout from "@/layouts/AppleLayout";
@@ -23,6 +24,7 @@ export default function Page() {
     <>
       <Spotlight />
       <CommandPalette />
+      <Lightbox />
       <Layout />
     </>
   );

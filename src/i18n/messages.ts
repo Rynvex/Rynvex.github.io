@@ -38,6 +38,7 @@ type Msg = {
       company?: string;
       news?: { label: string; url: string }[];
       image?: string;
+      gallery?: { src: string; caption: string }[];
     }[];
   };
   skills: {
@@ -210,14 +211,54 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           id: "06",
-          title: "NLP Paper Recommendation System",
+          title: "Paper Search",
           role: "Solo build",
           pitch:
-            "Semantic recommendation over arXiv embeddings with user-feedback re-ranking. Cut paper review time ~50% for the R&D team.",
-          stack: ["Python", "Sentence-BERT", "FAISS", "NLP"],
+            "Semantic research workspace for arXiv. 2.4M papers indexed with a Gemma-300M embedder + BGE cross-encoder reranker on a single consumer GPU. Conversational discovery via Gemini function calling, grounded by a host-side citation filter (zero hallucinated paper IDs). Self-hosted at home over Cloudflare Tunnel for ~$5/month.",
+          stack: [
+            "Next.js",
+            "FastAPI",
+            "Qdrant",
+            "Gemma 300M",
+            "BGE Reranker",
+            "Gemini",
+            "Postgres",
+            "Redis",
+          ],
           tag: "side project",
           confidential: false,
-          image: "/projects/06.svg",
+          gallery: [
+            {
+              src: "/projects/paper-search/01-search-dashboard.webp",
+              caption:
+                "Semantic search over 2.4M arXiv papers — sub-second results with int8 quantization on a single GPU.",
+            },
+            {
+              src: "/projects/paper-search/02-chat-bot-grounded.webp",
+              caption:
+                "Function-calling LLM agent grounded in the local corpus — every cited paper is real, verified at host level.",
+            },
+            {
+              src: "/projects/paper-search/03-reading-mode.webp",
+              caption:
+                "Read without leaving the app — metadata + embedded PDF + persistent BOT context.",
+            },
+            {
+              src: "/projects/paper-search/04-read-more-expanded.webp",
+              caption:
+                "Per-card progressive disclosure — line-clamped by default, expandable in place.",
+            },
+            {
+              src: "/projects/paper-search/05-collections-skill-board.webp",
+              caption:
+                "Saved papers + auto-derived research-skill graph — the system learns your footprint.",
+            },
+            {
+              src: "/projects/paper-search/06-note-editor-split.webp",
+              caption:
+                "Markdown notes side-by-side with the live paper — the desktop power-user surface.",
+            },
+          ],
         },
       ],
     },
@@ -414,13 +455,50 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           id: "06",
-          title: "NLP 論文推薦系統",
+          title: "Paper Search",
           role: "個人開發",
-          pitch: "基於 arXiv 嵌入向量的語意推薦，支援使用者回饋重排序，為 R&D 團隊節省約 50% 論文篩選時間。",
-          stack: ["Python", "Sentence-BERT", "FAISS", "NLP"],
+          pitch:
+            "arXiv 的語意研究工作空間：2.4M 論文，Gemma-300M 嵌入 + BGE cross-encoder 重排，單張消費級 GPU。對話式探索用 Gemini function calling，host 端引用過濾保證零幻覺論文 ID。自架在家、Cloudflare Tunnel 對外，每月約 $5。",
+          stack: [
+            "Next.js",
+            "FastAPI",
+            "Qdrant",
+            "Gemma 300M",
+            "BGE Reranker",
+            "Gemini",
+            "Postgres",
+            "Redis",
+          ],
           tag: "個人專案",
           confidential: false,
-          image: "/projects/06.svg",
+          gallery: [
+            {
+              src: "/projects/paper-search/01-search-dashboard.webp",
+              caption:
+                "在 2.4M arXiv 論文上做語意搜尋 — 單一 GPU + int8 量化、亞秒級結果。",
+            },
+            {
+              src: "/projects/paper-search/02-chat-bot-grounded.webp",
+              caption:
+                "Function calling LLM 代理 grounded 在本地語料 — 引用的論文都是真實，host 層驗證。",
+            },
+            {
+              src: "/projects/paper-search/03-reading-mode.webp",
+              caption: "不離開 app 直接讀 — metadata + 嵌入 PDF + 持續性 BOT 對話。",
+            },
+            {
+              src: "/projects/paper-search/04-read-more-expanded.webp",
+              caption: "卡片內部漸進顯示 — 預設行數截斷、就地展開。",
+            },
+            {
+              src: "/projects/paper-search/05-collections-skill-board.webp",
+              caption: "儲存的論文 + 自動推導的研究技能圖 — 系統學習你的足跡。",
+            },
+            {
+              src: "/projects/paper-search/06-note-editor-split.webp",
+              caption: "Markdown 筆記與 PDF 並排 — 桌機使用者的編輯介面。",
+            },
+          ],
         },
       ],
     },
@@ -614,13 +692,54 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           id: "06",
-          title: "NLP 論文推薦システム",
+          title: "Paper Search",
           role: "個人開発",
-          pitch: "arXiv論文の埋め込みベクトルを使った意味ベース推薦と、ユーザーフィードバックによる再ランキング。R&Dチームの論文選定時間を約50%削減。",
-          stack: ["Python", "Sentence-BERT", "FAISS", "NLP"],
+          pitch:
+            "arXiv向けセマンティックリサーチワークスペース。2.4M論文、Gemma-300M埋め込み + BGE cross-encoderリランカー、コンシューマGPU1台で運用。Gemini function callingによる対話的探索、ホスト側の引用フィルタで論文IDの幻覚をゼロに。自宅セルフホスト + Cloudflare Tunnelで月額約$5。",
+          stack: [
+            "Next.js",
+            "FastAPI",
+            "Qdrant",
+            "Gemma 300M",
+            "BGE Reranker",
+            "Gemini",
+            "Postgres",
+            "Redis",
+          ],
           tag: "個人プロジェクト",
           confidential: false,
-          image: "/projects/06.svg",
+          gallery: [
+            {
+              src: "/projects/paper-search/01-search-dashboard.webp",
+              caption:
+                "240万件のarXiv論文を対象とした意味検索 — シングルGPU + int8量子化でサブ秒の結果。",
+            },
+            {
+              src: "/projects/paper-search/02-chat-bot-grounded.webp",
+              caption:
+                "ローカルコーパスにgroundedされた関数呼び出しLLMエージェント — 引用される論文は全て実在、ホスト側で検証。",
+            },
+            {
+              src: "/projects/paper-search/03-reading-mode.webp",
+              caption:
+                "アプリ内で直接読む — メタデータ + 埋め込みPDF + 持続するBOTコンテキスト。",
+            },
+            {
+              src: "/projects/paper-search/04-read-more-expanded.webp",
+              caption:
+                "カードごとのプログレッシブディスクロージャ — line-clampを既定、その場で展開。",
+            },
+            {
+              src: "/projects/paper-search/05-collections-skill-board.webp",
+              caption:
+                "保存した論文 + 自動派生される研究スキルグラフ — システムが行動の蓄積を学習。",
+            },
+            {
+              src: "/projects/paper-search/06-note-editor-split.webp",
+              caption:
+                "Markdownノートと論文PDFの並列表示 — デスクトップ向けの作業面。",
+            },
+          ],
         },
       ],
     },

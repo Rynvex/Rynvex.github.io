@@ -4,6 +4,7 @@ import "./globals.css";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
 import { DesignProvider } from "@/lib/design";
 import { PaletteProvider } from "@/lib/palette";
+import { LightboxProvider } from "@/lib/lightbox";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,7 +49,9 @@ export default function RootLayout({
       <body>
         <DesignProvider>
           <PaletteProvider>
-            <LocaleProvider>{children}</LocaleProvider>
+            <LightboxProvider>
+              <LocaleProvider>{children}</LocaleProvider>
+            </LightboxProvider>
           </PaletteProvider>
         </DesignProvider>
       </body>

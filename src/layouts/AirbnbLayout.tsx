@@ -13,11 +13,13 @@ import {
   TrendingUp,
   BookOpen,
   Lock,
+  Maximize2,
 } from "lucide-react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { LOCALES, type Locale, messages } from "@/i18n/messages";
 import { useDesign } from "@/lib/design";
 import { usePalette } from "@/lib/palette";
+import { useLightbox } from "@/lib/lightbox";
 import { designMeta } from "@/lib/designs";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -192,55 +194,95 @@ export default function AirbnbLayout() {
 }
 
 function AirbnbCard({ p }: { p: Project }) {
+  const { openGallery } = useLightbox();
   const Icon = PROJECT_ICON[p.id];
-  const useImageAsHero = !p.confidential && p.image;
+  const hasGallery = !!p.gallery && p.gallery.length > 0;
+  const heroSrc = hasGallery ? p.gallery![0].src : p.image;
+  const useImageAsHero = !p.confidential && !!heroSrc;
+
+  const heroVisual = useImageAsHero ? (
+    <img
+      src={heroSrc}
+      alt={p.title}
+      loading="lazy"
+      className="w-full h-full object-cover transition-transform group-hover:scale-[1.03]"
+    />
+  ) : Icon ? (
+    <Icon size={72} strokeWidth={1.5} />
+  ) : (
+    <span className="font-mono text-[56px] font-bold" style={{ color: "var(--accent)" }}>
+      {p.id}
+    </span>
+  );
+
+  const heroBg = useImageAsHero
+    ? "transparent"
+    : "linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, #fff7f9), color-mix(in srgb, var(--accent) 6%, #fff0f3))";
+
+  const overlay = (
+    <>
+      <span
+        className="absolute top-3 left-3 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider pointer-events-none"
+        style={{ background: "rgba(255,255,255,0.92)", color: "var(--text)" }}
+      >
+        {p.id}
+      </span>
+      {p.confidential ? (
+        <div
+          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center pointer-events-none"
+          style={{ background: "rgba(255,255,255,0.92)" }}
+          aria-label="Confidential"
+        >
+          <Lock size={12} style={{ color: "var(--text)" }} />
+        </div>
+      ) : hasGallery ? (
+        <span
+          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-white/85 pointer-events-none"
+          aria-hidden="true"
+        >
+          <Maximize2 size={12} style={{ color: "var(--text)" }} />
+        </span>
+      ) : (
+        <span
+          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-white/80 pointer-events-none"
+          aria-hidden="true"
+        >
+          <Heart size={14} style={{ color: "var(--accent)" }} />
+        </span>
+      )}
+      {hasGallery && p.gallery!.length > 1 && (
+        <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/60 text-white text-[10px] font-mono pointer-events-none">
+          +{p.gallery!.length - 1} more
+        </span>
+      )}
+    </>
+  );
 
   return (
     <article
       className="rounded-[20px] overflow-hidden group transition-transform hover:-translate-y-0.5"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
-      <div
-        className="aspect-[5/4] relative flex items-center justify-center overflow-hidden"
-        style={{
-          background: useImageAsHero
-            ? "transparent"
-            : "linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, #fff7f9), color-mix(in srgb, var(--accent) 6%, #fff0f3))",
-        }}
-      >
-        {useImageAsHero ? (
-          <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover" />
-        ) : Icon ? (
-          <Icon size={72} strokeWidth={1.5} />
-        ) : (
-          <span className="font-mono text-[56px] font-bold" style={{ color: "var(--accent)" }}>
-            {p.id}
-          </span>
-        )}
-        <span
-          className="absolute top-3 left-3 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider"
-          style={{ background: "rgba(255,255,255,0.92)", color: "var(--text)" }}
+      {hasGallery ? (
+        <button
+          type="button"
+          onClick={() => openGallery(p.gallery!)}
+          className="aspect-[5/4] relative w-full flex items-center justify-center overflow-hidden cursor-zoom-in"
+          style={{ background: heroBg }}
+          aria-label={`Open ${p.title} gallery`}
         >
-          {p.id}
-        </span>
-        {p.confidential ? (
-          <div
-            className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center"
-            style={{ background: "rgba(255,255,255,0.92)" }}
-            aria-label="Confidential"
-          >
-            <Lock size={12} style={{ color: "var(--text)" }} />
-          </div>
-        ) : (
-          <button
-            className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-white/80 hover:bg-white"
-            aria-label="Save"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Heart size={14} style={{ color: "var(--accent)" }} />
-          </button>
-        )}
-      </div>
+          {heroVisual}
+          {overlay}
+        </button>
+      ) : (
+        <div
+          className="aspect-[5/4] relative flex items-center justify-center overflow-hidden"
+          style={{ background: heroBg }}
+        >
+          {heroVisual}
+          {overlay}
+        </div>
+      )}
       <div className="p-5 bg-[var(--bg)]">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-[15px] font-semibold leading-snug">{p.title}</h3>

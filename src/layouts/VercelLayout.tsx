@@ -1,5 +1,6 @@
 "use client";
-import { ArrowUpRight, Download, Github, Linkedin, Lock, Mail, Palette } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Lock, Mail, Maximize2, Palette } from "lucide-react";
+import { useLightbox } from "@/lib/lightbox";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { LOCALES, type Locale, messages } from "@/i18n/messages";
 import { useDesign } from "@/lib/design";
@@ -129,6 +130,9 @@ export default function VercelLayout() {
 }
 
 function VercelProjectCard({ p }: { p: Project }) {
+  const { openGallery } = useLightbox();
+  const hasGallery = !!p.gallery && p.gallery.length > 0;
+  const cover = hasGallery ? p.gallery![0].src : p.image;
   return (
     <div
       className="group block p-6 rounded-lg transition-[box-shadow,transform] hover:-translate-y-px"
@@ -186,15 +190,40 @@ function VercelProjectCard({ p }: { p: Project }) {
           ))}
         </div>
       )}
-      {!p.confidential && p.image && (
+      {!p.confidential && cover && (
         <div className="mt-5 pt-4 border-t border-[var(--border)]">
-          <img
-            src={p.image}
-            alt={p.title}
-            loading="lazy"
-            className="rounded-md w-full"
-            style={{ boxShadow: "var(--shadow-card)" }}
-          />
+          {hasGallery ? (
+            <button
+              type="button"
+              onClick={() => openGallery(p.gallery!)}
+              className="group/cover relative block w-full overflow-hidden rounded-md"
+              aria-label={`Open ${p.title} gallery`}
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <img
+                src={cover}
+                alt={p.gallery![0].caption}
+                loading="lazy"
+                className="w-full transition-transform group-hover/cover:scale-[1.02]"
+              />
+              <span className="absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center bg-black/55 text-white opacity-0 group-hover/cover:opacity-100 transition-opacity">
+                <Maximize2 size={14} />
+              </span>
+              {p.gallery!.length > 1 && (
+                <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/65 text-white text-[11px] font-mono">
+                  +{p.gallery!.length - 1} more
+                </span>
+              )}
+            </button>
+          ) : (
+            <img
+              src={cover}
+              alt={p.title}
+              loading="lazy"
+              className="rounded-md w-full"
+              style={{ boxShadow: "var(--shadow-card)" }}
+            />
+          )}
         </div>
       )}
     </div>

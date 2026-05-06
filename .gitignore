@@ -11,3 +11,6 @@ next-env.d.ts
 # root-level resume source files (public/ copies are what the site serves)
 /Chang Li-Wei.pdf
 /履歴書.pdf
+
+# project asset sources (public/ copies — converted to WebP — are served)
+/img/
