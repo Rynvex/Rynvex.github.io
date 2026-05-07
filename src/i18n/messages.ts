@@ -200,14 +200,46 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           id: "05",
-          title: "LLM × RAG Stock Market Analyst",
+          title: "Stock Analysis Platform",
           role: "Solo build",
           pitch:
-            "Agent that ingests filings, news, and earnings transcripts, and answers open-ended investment questions with citations.",
-          stack: ["Python", "LangChain", "Vector DB", "LLM", "RAG"],
+            "AI-driven stock analysis platform: started as a Streamlit prototype, rewrote into a Next.js 14 production stack. Includes a force-directed Financial Knowledge Graph with timeline playback, ML/RAG insights, multi-stock correlation, and ZH/EN/JA i18n. Schema-first API boundary via Zod; 95 unit + 12 integration + 40 backend tests.",
+          stack: [
+            "Next.js 14",
+            "TypeScript",
+            "TanStack Query",
+            "Zustand",
+            "Zod",
+            "next-intl",
+            "FastAPI",
+            "Postgres",
+            "pgvector",
+            "Gemini",
+          ],
           tag: "side project",
           confidential: false,
-          image: "/projects/05.svg",
+          gallery: [
+            {
+              src: "/projects/stock/01-individual-analysis-aapl.webp",
+              caption:
+                "Individual stock analysis · AAPL · KPI bar, multi-pane price chart with SMA overlays, structured AI insights.",
+            },
+            {
+              src: "/projects/stock/02-knowledge-graph-fkg.webp",
+              caption:
+                "Financial Knowledge Graph — force-directed entity-event network with timeline playback (the differentiator).",
+            },
+            {
+              src: "/projects/stock/03-market-comparison-correlation.webp",
+              caption:
+                "Multi-stock comparison — cumulative log-returns + Pearson correlation matrix with sample size disclosed.",
+            },
+            {
+              src: "/projects/stock/04-i18n-japanese-nvda.webp",
+              caption:
+                "Same view, Japanese locale, NVDA — every label flows through next-intl, no URL prefix, no hydration flash.",
+            },
+          ],
         },
         {
           id: "06",
@@ -445,13 +477,46 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           id: "05",
-          title: "LLM × RAG 股票市場分析代理",
+          title: "股票分析平台",
           role: "個人開發",
-          pitch: "整合財報、新聞、法說會逐字稿的 RAG 代理，能針對開放式投資問題生成附引用的分析。",
-          stack: ["Python", "LangChain", "Vector DB", "LLM", "RAG"],
+          pitch:
+            "AI 驅動的股票分析平台：從 Streamlit prototype 重寫為 Next.js 14 production stack。具備力導向的金融知識圖譜（含時間軸回放）、ML/RAG 洞察、多股相關矩陣、完整中英日 i18n。Zod schema-first API 邊界；95 單元 + 12 整合 + 40 後端測試。",
+          stack: [
+            "Next.js 14",
+            "TypeScript",
+            "TanStack Query",
+            "Zustand",
+            "Zod",
+            "next-intl",
+            "FastAPI",
+            "Postgres",
+            "pgvector",
+            "Gemini",
+          ],
           tag: "個人專案",
           confidential: false,
-          image: "/projects/05.svg",
+          gallery: [
+            {
+              src: "/projects/stock/01-individual-analysis-aapl.webp",
+              caption:
+                "個股分析 · AAPL · KPI 列、多窗格價格圖（含 SMA 疊圖）、結構化 AI 洞察。",
+            },
+            {
+              src: "/projects/stock/02-knowledge-graph-fkg.webp",
+              caption:
+                "金融知識圖譜 — 力導向的實體-事件網絡 + 時間軸回放（這個專案的差異化重點）。",
+            },
+            {
+              src: "/projects/stock/03-market-comparison-correlation.webp",
+              caption:
+                "多股比較 — 累積對數收益曲線 + Pearson 相關矩陣，附樣本數明確標示。",
+            },
+            {
+              src: "/projects/stock/04-i18n-japanese-nvda.webp",
+              caption:
+                "同畫面切到日文、NVDA — 每個標籤經 next-intl，無 URL 前綴，無 hydration flash。",
+            },
+          ],
         },
         {
           id: "06",
@@ -682,13 +747,46 @@ export const messages: Record<Locale, Msg> = {
         },
         {
           id: "05",
-          title: "LLM × RAG 株式市場アナリスト",
+          title: "株式分析プラットフォーム",
           role: "個人開発",
-          pitch: "有価証券報告書、ニュース、決算説明会テキストを統合するRAGエージェント。投資質問に引用付きで回答。",
-          stack: ["Python", "LangChain", "Vector DB", "LLM", "RAG"],
+          pitch:
+            "AI駆動の株式分析プラットフォーム：Streamlitプロトタイプから Next.js 14 production stack へリライト。フォースダイレクトの金融ナレッジグラフ（タイムライン再生付き）、ML/RAG インサイト、複数銘柄相関、ZH/EN/JA 完全 i18n。Zod schema-first API 境界；95ユニット + 12統合 + 40バックエンドのテスト。",
+          stack: [
+            "Next.js 14",
+            "TypeScript",
+            "TanStack Query",
+            "Zustand",
+            "Zod",
+            "next-intl",
+            "FastAPI",
+            "Postgres",
+            "pgvector",
+            "Gemini",
+          ],
           tag: "個人プロジェクト",
           confidential: false,
-          image: "/projects/05.svg",
+          gallery: [
+            {
+              src: "/projects/stock/01-individual-analysis-aapl.webp",
+              caption:
+                "個別銘柄分析 · AAPL · KPIバー、SMAオーバーレイ付きマルチペイン価格チャート、構造化AIインサイト。",
+            },
+            {
+              src: "/projects/stock/02-knowledge-graph-fkg.webp",
+              caption:
+                "金融ナレッジグラフ — フォースダイレクトのエンティティ＝イベント網とタイムライン再生（差別化ポイント）。",
+            },
+            {
+              src: "/projects/stock/03-market-comparison-correlation.webp",
+              caption:
+                "複数銘柄比較 — 累積対数リターン + Pearson 相関マトリクス、サンプル数を明示。",
+            },
+            {
+              src: "/projects/stock/04-i18n-japanese-nvda.webp",
+              caption:
+                "同じビューを日本語ロケール、NVDA — 全ラベルが next-intl 経由、URL プレフィックスなし、ハイドレーションフラッシュなし。",
+            },
+          ],
         },
         {
           id: "06",
