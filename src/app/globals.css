@@ -276,8 +276,55 @@ body {
 [data-design="vercel"] .spotlight,
 [data-design="airbnb"] .spotlight,
 [data-design="miro"] .spotlight,
-[data-design="pinterest"] .spotlight {
+[data-design="pinterest"] .spotlight,
+[data-design="mistral"] .spotlight {
   display: none;
+}
+
+/* ===== Saffron — warm amber, sharp architectural corners ===== */
+[data-design="mistral"] {
+  --bg: #fffaeb;
+  --surface: #fff0c2;
+  --elevated: #ffffff;
+  --text: #1f1f1f;
+  --text-muted: #4a3f1a;
+  --text-subtle: #6e5c2a;
+  --accent: #fa520f;
+  --accent-hover: #fb6424;
+  --accent-bg: #1f1f1f;
+  --border: #f4e3a8;
+  --border-strong: #d5b87a;
+  --card-bg: #ffffff;
+  --card-hover: #fff7d6;
+  --font-sans: var(--font-inter), Arial, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: normal;
+  --radius-sm: 0px;
+  --radius: 2px;
+  --radius-lg: 4px;
+  --shadow-card: rgba(127, 99, 21, 0.12) -8px 16px 39px,
+    rgba(127, 99, 21, 0.08) -33px 64px 72px,
+    rgba(127, 99, 21, 0.04) -73px 144px 97px;
+  --display-tracking: -2.05px;
+  --h1-tracking: -1.5px;
+  --weight-normal: 400;
+  --weight-emphasis: 500;
+  --weight-strong: 600;
+}
+
+[data-design="mistral"] .chip {
+  border-radius: 2px;
+  background: var(--card-bg);
+  border-color: var(--border-strong);
+  color: var(--text);
+  font-weight: 500;
+}
+
+[data-design="mistral"] .btn {
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.04em;
 }
 
 /* ===== Pastel — cool collaborative ===== */

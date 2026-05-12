@@ -1,6 +1,13 @@
 import type { Locale } from "@/i18n/messages";
 
-export type Design = "linear" | "vercel" | "apple" | "airbnb" | "miro" | "pinterest";
+export type Design =
+  | "linear"
+  | "vercel"
+  | "apple"
+  | "airbnb"
+  | "miro"
+  | "pinterest"
+  | "mistral";
 
 export const DESIGNS: readonly Design[] = [
   "linear",
@@ -9,6 +16,7 @@ export const DESIGNS: readonly Design[] = [
   "airbnb",
   "miro",
   "pinterest",
+  "mistral",
 ] as const;
 
 export type DesignMeta = {
@@ -116,6 +124,25 @@ export const designMeta: Record<Design, DesignMeta> = {
     },
     swatch: ["#ffffff", "#1c1c1e", "#5b76fe", "#ffc6c6"],
     fontFamily: "Display Medium",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  mistral: {
+    id: "mistral",
+    name: "Saffron",
+    theme: "light",
+    tagline: {
+      en: "Warm amber, sharp corners",
+      zh: "暖琥珀、銳利方角",
+      ja: "ウォームアンバー、シャープな角",
+    },
+    description: {
+      en: "Warm-ivory canvas with golden-amber surfaces and a saturated burnt-orange accent. Near-zero corner radius, multi-layer warm-gold shadows, uppercase CTAs.",
+      zh: "暖象牙白畫布配金琥珀色面與飽和的焦橘強調色。近乎零的圓角、多層暖金色陰影、CTA 全大寫。",
+      ja: "温かみのある象牙色キャンバスにゴールデンアンバーのサーフェスと飽和したバーンオレンジのアクセント。コーナーはほぼ直角、複層の暖かい黄金シャドウ、CTAは大文字。",
+    },
+    swatch: ["#fffaeb", "#fa520f", "#1f1f1f", "#ffa110"],
+    fontFamily: "Sans",
     fontVar: "var(--font-inter)",
     specimen: "Aa",
   },

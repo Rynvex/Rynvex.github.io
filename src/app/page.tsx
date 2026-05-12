@@ -15,6 +15,7 @@ const layouts = {
   airbnb: AirbnbLayout,
   miro: VercelLayout,      // light fallback
   pinterest: VercelLayout, // light fallback
+  mistral: VercelLayout,   // light fallback
 } as const;
 
 export default function Page() {
