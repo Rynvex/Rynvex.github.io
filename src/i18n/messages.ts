@@ -74,6 +74,8 @@ type Msg = {
     current: string;
     more: string;
     trigger: string;
+    show: string;
+    hide: string;
   };
 };
 
@@ -355,6 +357,8 @@ export const messages: Record<Locale, Msg> = {
       current: "Current",
       more: "More designs coming",
       trigger: "Design",
+      show: "Show all designs",
+      hide: "Hide",
     },
   },
 
@@ -620,6 +624,8 @@ export const messages: Record<Locale, Msg> = {
       current: "目前",
       more: "更多設計陸續加入",
       trigger: "設計",
+      show: "展開所有設計",
+      hide: "收起",
     },
   },
 
@@ -902,6 +908,8 @@ export const messages: Record<Locale, Msg> = {
       current: "現在",
       more: "デザインは順次追加",
       trigger: "デザイン",
+      show: "すべてのデザインを表示",
+      hide: "閉じる",
     },
   },
 };
