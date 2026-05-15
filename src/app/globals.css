@@ -277,8 +277,90 @@ body {
 [data-design="airbnb"] .spotlight,
 [data-design="miro"] .spotlight,
 [data-design="pinterest"] .spotlight,
-[data-design="mistral"] .spotlight {
+[data-design="mistral"] .spotlight,
+[data-design="together"] .spotlight,
+[data-design="revolut"] .spotlight {
   display: none;
+}
+
+/* ===== Aurora — pastel dawn, sharp geometry ===== */
+[data-design="together"] {
+  --bg: #ffffff;
+  --surface: #f5f3ff;
+  --elevated: #ffffff;
+  --text: #000000;
+  --text-muted: rgba(0, 0, 0, 0.65);
+  --text-subtle: rgba(0, 0, 0, 0.42);
+  --accent: #ef2cc1;
+  --accent-hover: #fc4c02;
+  --accent-bg: #010120;
+  --border: rgba(1, 1, 32, 0.1);
+  --border-strong: rgba(1, 1, 32, 0.22);
+  --card-bg: #ffffff;
+  --card-hover: #f5f3ff;
+  --font-sans: var(--font-inter), Arial, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), Georgia, monospace;
+  --font-feature: normal;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-lg: 12px;
+  --shadow-card: rgba(1, 1, 32, 0.06) 0px 0px 0px 1px,
+    rgba(1, 1, 32, 0.1) 0px 4px 12px;
+  --display-tracking: -1.92px;
+  --h1-tracking: -0.8px;
+  --weight-normal: 400;
+  --weight-emphasis: 500;
+  --weight-strong: 500;
+}
+
+[data-design="together"] .chip {
+  border-radius: 4px;
+  background: var(--card-bg);
+  border-color: var(--border);
+  color: var(--text);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Marble — fintech pill buttons, billboard headlines ===== */
+[data-design="revolut"] {
+  --bg: #ffffff;
+  --surface: #f4f4f4;
+  --elevated: #ffffff;
+  --text: #191c1f;
+  --text-muted: #505a63;
+  --text-subtle: #8d969e;
+  --accent: #494fdf;
+  --accent-hover: #376cd5;
+  --accent-bg: #191c1f;
+  --border: #d8d8dc;
+  --border-strong: #8d969e;
+  --card-bg: #ffffff;
+  --card-hover: #f4f4f4;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: normal;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-card: none;
+  --display-tracking: -2.72px;
+  --h1-tracking: -1px;
+  --weight-normal: 400;
+  --weight-emphasis: 500;
+  --weight-strong: 600;
+}
+
+[data-design="revolut"] .btn {
+  border-radius: 9999px;
+  padding: 0 1.5rem;
+}
+
+[data-design="revolut"] .chip {
+  border-radius: 9999px;
+  border-color: var(--border-strong);
 }
 
 /* ===== Saffron — warm amber, sharp architectural corners ===== */

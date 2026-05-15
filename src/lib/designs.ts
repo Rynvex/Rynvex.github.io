@@ -7,7 +7,9 @@ export type Design =
   | "airbnb"
   | "miro"
   | "pinterest"
-  | "mistral";
+  | "mistral"
+  | "together"
+  | "revolut";
 
 export const DESIGNS: readonly Design[] = [
   "linear",
@@ -17,6 +19,8 @@ export const DESIGNS: readonly Design[] = [
   "miro",
   "pinterest",
   "mistral",
+  "together",
+  "revolut",
 ] as const;
 
 export type DesignMeta = {
@@ -124,6 +128,44 @@ export const designMeta: Record<Design, DesignMeta> = {
     },
     swatch: ["#ffffff", "#1c1c1e", "#5b76fe", "#ffc6c6"],
     fontFamily: "Display Medium",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  together: {
+    id: "together",
+    name: "Aurora",
+    theme: "light",
+    tagline: {
+      en: "Pastel dawn, sharp geometry",
+      zh: "粉彩晨光、銳利幾何",
+      ja: "パステルの夜明け、シャープな幾何学",
+    },
+    description: {
+      en: "Pure-white canvas with subtle lavender surfaces, magenta-orange brand accents reserved for illustrations, and midnight-blue CTAs. Tight display tracking, mono uppercase labels.",
+      zh: "純白畫布配淡薰衣草色面、洋紅與橘色僅留給插畫的品牌色、午夜藍 CTA。緊湊大字距、mono 大寫標籤。",
+      ja: "純白キャンバスに淡いラベンダーのサーフェス、マゼンタとオレンジは挿絵専用のブランドアクセント、ミッドナイトブルーのCTA。タイトな表示トラッキング、モノ大文字ラベル。",
+    },
+    swatch: ["#ffffff", "#bdbbff", "#ef2cc1", "#010120"],
+    fontFamily: "Display Sans",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  revolut: {
+    id: "revolut",
+    name: "Marble",
+    theme: "light",
+    tagline: {
+      en: "Pill buttons, billboard headlines",
+      zh: "膠囊按鈕、廣告牌等級標題",
+      ja: "ピル型ボタン、ビルボードスケールの見出し",
+    },
+    description: {
+      en: "Near-black (#191c1f) and pure white binary with universal pill buttons (9999px). Ultra-compressed display tracking (-2.72px). Zero shadows — depth via color contrast only.",
+      zh: "近黑（#191c1f）與純白雙色配置，所有按鈕都是膠囊形（9999px）。超壓縮顯示字距（-2.72px）。零陰影 — 靠色對比建立深度。",
+      ja: "ニアブラック（#191c1f）と純白の2色構成、すべてのボタンがピル型（9999px）。超圧縮の見出しトラッキング（-2.72px）。シャドウなし — 色のコントラストで深度を表現。",
+    },
+    swatch: ["#ffffff", "#191c1f", "#494fdf", "#f4f4f4"],
+    fontFamily: "Display Sans",
     fontVar: "var(--font-inter)",
     specimen: "Aa",
   },

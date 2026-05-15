@@ -16,6 +16,8 @@ const layouts = {
   miro: VercelLayout,      // light fallback
   pinterest: VercelLayout, // light fallback
   mistral: VercelLayout,   // light fallback
+  together: VercelLayout,  // light fallback
+  revolut: VercelLayout,   // light fallback
 } as const;
 
 export default function Page() {
