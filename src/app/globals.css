@@ -279,8 +279,92 @@ body {
 [data-design="pinterest"] .spotlight,
 [data-design="mistral"] .spotlight,
 [data-design="together"] .spotlight,
-[data-design="revolut"] .spotlight {
+[data-design="revolut"] .spotlight,
+[data-design="hashicorp"] .spotlight {
   display: none;
+}
+
+/* ===== Cobalt — infrastructure typography, micro-shadows ===== */
+[data-design="hashicorp"] {
+  --bg: #ffffff;
+  --surface: #f1f2f3;
+  --elevated: #ffffff;
+  --text: #000000;
+  --text-muted: #3b3d45;
+  --text-subtle: #656a76;
+  --accent: #2264d6;
+  --accent-hover: #1060ff;
+  --accent-bg: #000000;
+  --border: #d5d7db;
+  --border-strong: #b2b6bd;
+  --card-bg: #ffffff;
+  --card-hover: #f1f2f3;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: "kern";
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow-card: rgba(97, 104, 117, 0.05) 0px 1px 1px,
+    rgba(97, 104, 117, 0.05) 0px 2px 2px;
+  --display-tracking: -0.42px;
+  --h1-tracking: -0.2px;
+  --weight-normal: 400;
+  --weight-emphasis: 600;
+  --weight-strong: 700;
+}
+
+[data-design="hashicorp"] .chip {
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+
+/* ===== Verdant — dark forest, neon-green pulse ===== */
+[data-design="shopify"] {
+  --bg: #000000;
+  --surface: #02090a;
+  --elevated: #102620;
+  --text: #ffffff;
+  --text-muted: #a1a1aa;
+  --text-subtle: #71717a;
+  --accent: #36f4a4;
+  --accent-hover: #6ff7bd;
+  --accent-bg: #ffffff;
+  --border: #1e2c31;
+  --border-strong: #3f3f46;
+  --card-bg: #02090a;
+  --card-hover: #102620;
+  --font-sans: var(--font-inter), Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-feature: "ss03";
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-card: rgba(0, 0, 0, 0.5) 0px 8px 24px,
+    rgba(54, 244, 164, 0.05) 0px 0px 0px 1px;
+  --display-tracking: -2px;
+  --h1-tracking: -1px;
+  --weight-normal: 400;
+  --weight-emphasis: 500;
+  --weight-strong: 600;
+}
+
+[data-design="shopify"] .btn {
+  border-radius: 9999px;
+  padding: 0 1.5rem;
+}
+
+/* white CTA on dark — needs dark text override */
+[data-design="shopify"] .btn-primary {
+  color: #000000;
+}
+
+[data-design="shopify"] .chip {
+  border-radius: 9999px;
+  border-color: var(--border-strong);
 }
 
 /* ===== Aurora — pastel dawn, sharp geometry ===== */

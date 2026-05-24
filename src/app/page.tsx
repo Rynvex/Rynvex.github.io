@@ -18,6 +18,8 @@ const layouts = {
   mistral: VercelLayout,   // light fallback
   together: VercelLayout,  // light fallback
   revolut: VercelLayout,   // light fallback
+  hashicorp: VercelLayout, // light fallback
+  shopify: LinearLayout,   // dark fallback
 } as const;
 
 export default function Page() {

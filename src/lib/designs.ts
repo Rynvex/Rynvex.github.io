@@ -9,7 +9,9 @@ export type Design =
   | "pinterest"
   | "mistral"
   | "together"
-  | "revolut";
+  | "revolut"
+  | "hashicorp"
+  | "shopify";
 
 export const DESIGNS: readonly Design[] = [
   "linear",
@@ -21,6 +23,8 @@ export const DESIGNS: readonly Design[] = [
   "mistral",
   "together",
   "revolut",
+  "hashicorp",
+  "shopify",
 ] as const;
 
 export type DesignMeta = {
@@ -128,6 +132,44 @@ export const designMeta: Record<Design, DesignMeta> = {
     },
     swatch: ["#ffffff", "#1c1c1e", "#5b76fe", "#ffc6c6"],
     fontFamily: "Display Medium",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  hashicorp: {
+    id: "hashicorp",
+    name: "Cobalt",
+    theme: "light",
+    tagline: {
+      en: "Infrastructure typography, micro-shadows",
+      zh: "基礎建設字體、微弱陰影",
+      ja: "インフラ型タイポグラフィ、マイクロシャドウ",
+    },
+    description: {
+      en: "White canvas with light-gray surfaces, link-blue accent (#2264d6), tight 2–8px corners. Micro-shadows at 0.05 opacity — depth through whisper. Uppercase tracked chips.",
+      zh: "白底配淡灰色面、連結藍 #2264d6 強調色、緊湊 2–8px 圓角。0.05 透明度微陰影 — 用低語做深度。大寫加字距 chip。",
+      ja: "白キャンバスにライトグレーのサーフェス、リンクブルー(#2264d6)のアクセント、2〜8pxのタイトな角丸。0.05不透明度のマイクロシャドウ — 囁きで深度を表現。大文字トラッキングのチップ。",
+    },
+    swatch: ["#ffffff", "#000000", "#2264d6", "#d5d7db"],
+    fontFamily: "Sans",
+    fontVar: "var(--font-inter)",
+    specimen: "Aa",
+  },
+  shopify: {
+    id: "shopify",
+    name: "Verdant",
+    theme: "dark",
+    tagline: {
+      en: "Dark forest, neon-green pulse",
+      zh: "深森綠、霓虹綠脈動",
+      ja: "ダークフォレスト、ネオングリーンの鼓動",
+    },
+    description: {
+      en: "Pure-black canvas with deep forest-teal undertones (#02090A → #102620), neon green (#36F4A4) as the singular high-energy accent. Pill CTAs with white fills.",
+      zh: "純黑畫布配深森林青底色（#02090A → #102620），霓虹綠 #36F4A4 是單一高能量強調色。膠囊形 CTA、白色填色。",
+      ja: "純黒キャンバスに深い森のティールの下地(#02090A → #102620)、単一の高エネルギーアクセントのネオングリーン(#36F4A4)。ピル型CTAの白塗りつぶし。",
+    },
+    swatch: ["#000000", "#02090a", "#36f4a4", "#102620"],
+    fontFamily: "Sans",
     fontVar: "var(--font-inter)",
     specimen: "Aa",
   },
